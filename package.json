@@ -1,0 +1,27 @@
+
+{
+  "name": "react-native-immersive-mode",
+  "version": "1.0.0",
+  "description": "Set Immersive mode for Android (hide status bar or navigation bar bottom)",
+  "main": "index.js",
+  "keywords": [
+    "react-native",
+    "android",
+    "immersive",
+    "navigation-bar-bottom",
+    "status-bar"
+  ],
+  "homepage": "https://github.com/wrathyz/react-native-immersive-mode",
+  "bugs": {
+    "url": "https://github.com/wrathyz/react-native-immersive-mode/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/wrathyz/react-native-immersive-mode"
+  },
+  "author": "Wrathyz",
+  "license": "MIT",
+  "peerDependencies": {
+    "react-native": "0.60.5"
+  }
+}
