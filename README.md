@@ -1,5 +1,6 @@
 
 # react-native-immersive-mode
+[![npm version](https://badge.fury.io/js/react-native-immersive-mode.svg)](https://badge.fury.io/js/react-native-immersive-mode)
 
 ## Getting started
 
