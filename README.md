@@ -7,17 +7,12 @@
 
 ### Mostly automatic installation
 
+Note. react-native `>0.60` no need to link
+
 `$ react-native link react-native-immersive-mode`
 
 ### Manual installation
 
-
-#### iOS
-
-1. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
-2. Go to `node_modules` ➜ `react-native-immersive-mode` and add `RNImmersiveMode.xcodeproj`
-3. In XCode, in the project navigator, select your project. Add `libRNImmersiveMode.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
-4. Run your project (`Cmd+R`)<
 
 #### Android
 
@@ -31,23 +26,54 @@
   	```
 3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
   	```
-      compile project(':react-native-immersive-mode')
+      implementation project(':react-native-immersive-mode')
   	```
 
-#### Windows
-[Read it! :D](https://github.com/ReactWindows/react-native)
-
-1. In Visual Studio add the `RNImmersiveMode.sln` in `node_modules/react-native-immersive-mode/windows/RNImmersiveMode.sln` folder to their solution, reference from their app.
-2. Open up your `MainPage.cs` app
-  - Add `using Immersive.Mode.RNImmersiveMode;` to the usings at the top of the file
-  - Add `new RNImmersiveModePackage()` to the `List<IReactPackage>` returned by the `Packages` method
-
-
 ## Usage
-```javascript
-import RNImmersiveMode from 'react-native-immersive-mode';
 
-// TODO: What to do with the module?
-RNImmersiveMode;
+
+### Full Layout
+
+```javascript
+import ImmersiveMode from 'react-native-immersive-mode';
+
+componentDidMount() {
+	ImmersiveMode.fullLayout(true);
+}
+
+componentWillUnmount() {
+	ImmersiveMode.fullLayout(true);
+}
 ```
-  
+
+### Immersive
+
+Immersive will change ui system (status bar or navigation bar bottom)
+
+```javascript
+import ImmersiveMode from 'react-native-immersive-mode';
+
+ImmersiveMode.setImmersive(ImmersiveMode.Normal)
+ImmersiveMode.setImmersive(ImmersiveMode.Full);
+ImmersiveMode.setImmersive(ImmersiveMode.FullSticky);
+ImmersiveMode.setImmersive(ImmersiveMode.Bottom);
+ImmersiveMode.setImmersive(ImmersiveMode.BottomSticky);
+```
+
+### Event 
+
+addEventListener will visibility of layout `statusBar` and `navigationBottomBar`
+
+```javascript
+import ImmersiveMode from 'react-native-immersive-mode';
+
+componentDidMount() {
+	this.listen = ImmersiveMode.addEventListener((e) => {
+		console.log(e)
+	})
+}
+
+componentWillUnmount() {
+	this.listen.remove();
+}
+```
