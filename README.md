@@ -43,7 +43,7 @@ componentDidMount() {
 }
 
 componentWillUnmount() {
-	ImmersiveMode.fullLayout(true);
+	ImmersiveMode.fullLayout(false);
 }
 ```
 
