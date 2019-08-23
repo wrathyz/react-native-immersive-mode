@@ -17,19 +17,29 @@ Note. react-native `>0.60` no need to link
 
 #### Android
 
-1. Open up `android/app/src/main/java/[...]/MainActivity.java`
-  - Add `import com.rnimmersivemode.RNImmersiveModePackage;` to the imports at the top of the file
-  - Add `new RNImmersiveModePackage()` to the list returned by the `getPackages()` method
-2. Append the following lines to `android/settings.gradle`:
+1. Append the following lines to `android/settings.gradle`
   	```
-  	include ':react-native-immersive-mode'
-  	project(':react-native-immersive-mode').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-immersive-mode/android')
+	include ':react-native-immersive-mode'
+	project(':react-native-immersive-mode').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-immersive-mode/android')
   	```
-3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
+2. Insert the following lines inside the dependencies block in `android/app/build.gradle`
   	```
-      implementation project(':react-native-immersive-mode')
+	implementation project(':react-native-immersive-mode')
   	```
+3. Add it to your `MainApplication.java`
+	```
+	import com.rnimmersivemode.RNImmersiveModePackage;	// add this
 
+	public class MainActivity extends ReactActivity {
+		@Override
+		protected List<ReactPackage> getPackages() {
+			return Arrays.<ReactPackage>asList(
+				new MainReactPackage(),
+				new RNImmersiveModePackage()	// add this
+			);
+		}
+	}
+	```
 ## Usage
 
 
