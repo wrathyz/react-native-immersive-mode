@@ -62,7 +62,8 @@ Note. react-native `>0.60` no need to link
  - [setBarColor](#setBarColor)
  - [addEventListener](#addEventListener)
 
-### fullLayout(full: boolean): void
+### fullLayout
+`fullLayout(full: boolean): void`
 use all area of screen
 
 | name | type | description |
@@ -80,7 +81,8 @@ componentWillUnmount() {
 }
 ```
 
-### setBarMode(mode: string): void
+### setBarMode
+`setBarMode(mode: string): void`
 change status and navigation bar mode
 
 **Note**. mode sticky will be disabled bar color.
@@ -97,7 +99,8 @@ ImmersiveMode.setImmersive(ImmersiveMode.Normal);
 ImmersiveMode.setBarMode('Normal');
 ```
 
-### setBarStyle(style: string): void
+### setBarStyle
+`setBarStyle(style: string): void`
 chnage status and navigation style
 
 **Note**. To change system Navigation(bottom) to Light, must be change bar color `setBarColor` to other color first.
@@ -110,7 +113,8 @@ chnage status and navigation style
 ImmersiveMode.setBarStyle('Dark');
 ```
 
-### setBarTranslucent(translucent: boolean): void
+### setBarTranslucent
+`setBarTranslucent(translucent: boolean): void`
 change status and navigation bar is transparent 50%.
 
 **Note**. When `true` bar color will be disabled.
@@ -123,7 +127,8 @@ change status and navigation bar is transparent 50%.
 ImmersiveMode.setBarTranslucent(true);
 ```
 
-### setBarColor(color: string): void
+### setBarColor
+`setBarColor(color: string): void`
 change status and navigation bar is transparent 50%.
 
 | name | type | description |
@@ -136,7 +141,8 @@ change status and navigation bar is transparent 50%.
 ImmersiveMode.setBarColor('#ff0000');
 ```
 
-### addEventListener(callback: function): EmitterSubscription
+### addEventListener
+`addEventListener(callback: function): EmitterSubscription`
 trigger event when bar visibility change (mode sticky not trigged)
 
 | name | type | params | description |
