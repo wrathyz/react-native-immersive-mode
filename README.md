@@ -40,7 +40,6 @@ Note. react-native `>0.60` no need to link
 		}
 	}
 	```
-
 ## Usage
 
 ### Bar Mode 

@@ -24,7 +24,7 @@ export default class App extends Component {
 
   componentWillUnmount() {
     this.listen.remove();
-    ImmersiveMode.fullLayout(true);
+    ImmersiveMode.fullLayout(false);
   }
 
   render() {
