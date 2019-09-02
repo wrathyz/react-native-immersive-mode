@@ -17,57 +17,134 @@ Note. react-native `>0.60` no need to link
 
 #### Android
 
-1. Open up `android/app/src/main/java/[...]/MainActivity.java`
-  - Add `import com.rnimmersivemode.RNImmersiveModePackage;` to the imports at the top of the file
-  - Add `new RNImmersiveModePackage()` to the list returned by the `getPackages()` method
-2. Append the following lines to `android/settings.gradle`:
+1. Append the following lines to `android/settings.gradle`
   	```
-  	include ':react-native-immersive-mode'
-  	project(':react-native-immersive-mode').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-immersive-mode/android')
+	include ':react-native-immersive-mode'
+	project(':react-native-immersive-mode').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-immersive-mode/android')
   	```
-3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
+2. Insert the following lines inside the dependencies block in `android/app/build.gradle`
   	```
-      implementation project(':react-native-immersive-mode')
+	implementation project(':react-native-immersive-mode')
   	```
+3. Add it to your `MainApplication.java`
+	```
+	import com.rnimmersivemode.RNImmersiveModePackage;	// add this
+
+	public class MainActivity extends ReactActivity {
+		@Override
+		protected List<ReactPackage> getPackages() {
+			return Arrays.<ReactPackage>asList(
+				new MainReactPackage(),
+				new RNImmersiveModePackage()	// add this
+			);
+		}
+	}
+	```
 
 ## Usage
 
+### Bar Mode 
+- **Normal** - show status and navigation 
+- **Full**  - hide status and navigation
+- **FullSticky** - hide status and navigation with sticky
+- **Bottom** - hide navigation
+- **BottomSticky** - hide navigation with sticky
 
-### Full Layout
+### Bar Style
+- **Dark**
+- **Light**
+
+### Methods
+
+ - [fullLayout](#fullLayout)
+ - [setBarMode](#setBarMode)
+ - [setBarStyle](#setBarStyle)
+ - [setBarTranslucent](#setBarTranslucent)
+ - [setBarColor](#setBarColor)
+ - [addEventListener](#addEventListener)
+
+### fullLayout(full: boolean): void
+use all area of screen
+
+| name | type | description |
+| ---- | ---- | ------------|
+| full | boolean | `true` use all area of screen, `false` not include status and navigation bar |
 
 ```javascript
-import ImmersiveMode from 'react-native-immersive-mode';
-
+// should set full layout in componentDidMount
 componentDidMount() {
 	ImmersiveMode.fullLayout(true);
 }
-
+// and should restore layout
 componentWillUnmount() {
-	ImmersiveMode.fullLayout(true);
+	ImmersiveMode.fullLayout(false);
 }
 ```
 
-### Immersive
+### setBarMode(mode: string): void
+change status and navigation bar mode
 
-Immersive will change ui system (status bar or navigation bar bottom)
+**Note**. mode sticky will be disabled bar color.
+
+| name | type | description |
+| ---- | ---- | ------------|
+| mode | string | [Bar Mode](#bar-mode) |
 
 ```javascript
-import ImmersiveMode from 'react-native-immersive-mode';
+// Deprecated
+ImmersiveMode.setImmersive(ImmersiveMode.Normal);
 
-ImmersiveMode.setImmersive(ImmersiveMode.Normal)
-ImmersiveMode.setImmersive(ImmersiveMode.Full);
-ImmersiveMode.setImmersive(ImmersiveMode.FullSticky);
-ImmersiveMode.setImmersive(ImmersiveMode.Bottom);
-ImmersiveMode.setImmersive(ImmersiveMode.BottomSticky);
+// Use this instead
+ImmersiveMode.setBarMode('Normal');
 ```
 
-### Event 
+### setBarStyle(style: string): void
+chnage status and navigation style
 
-addEventListener will visibility of layout `statusBar` and `navigationBottomBar`
+**Note**. To change system Navigation(bottom) to Light, must be change bar color `setBarColor` to other color first.
+
+| name | type | description |
+| ---- | ---- | ------------|
+| mode | string | [Bar Style](#bar-style) |
 
 ```javascript
-import ImmersiveMode from 'react-native-immersive-mode';
+ImmersiveMode.setBarStyle('Dark');
+```
 
+### setBarTranslucent(translucent: boolean): void
+change status and navigation bar is transparent 50%.
+
+**Note**. When `true` bar color will be disabled.
+
+| name | type | description |
+| ---- | ---- | ------------|
+| translucent | booelan |  |
+
+```javascript
+ImmersiveMode.setBarTranslucent(true);
+```
+
+### setBarColor(color: string): void
+change status and navigation bar is transparent 50%.
+
+| name | type | description |
+| ---- | ---- | ------------|
+| color | string | `#rgb`, `#rrggbb`, `#rrggbbaa`. if color is `null` will set default color |
+
+> default color is color before changed by `setBarColor`
+
+```javascript
+ImmersiveMode.setBarColor('#ff0000');
+```
+
+### addEventListener(callback: function): EmitterSubscription
+trigger event when bar visibility change (mode sticky not trigged)
+
+| name | type | params | description |
+| ---- | ---- | ------ | ------------|
+| callback | function | (statusBar: boolean, navigationBottomBar: boolean) | description |
+
+```javascript
 componentDidMount() {
 	this.listen = ImmersiveMode.addEventListener((e) => {
 		console.log(e)
