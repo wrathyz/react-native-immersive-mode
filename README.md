@@ -55,12 +55,12 @@ Note. react-native `>0.60` no need to link
 
 ### Methods
 
- - [fullLayout](#fullLayout)
- - [setBarMode](#setBarMode)
- - [setBarStyle](#setBarStyle)
- - [setBarTranslucent](#setBarTranslucent)
- - [setBarColor](#setBarColor)
- - [addEventListener](#addEventListener)
+ - [fullLayout](#fulllayout)
+ - [setBarMode](#setbarmode)
+ - [setBarStyle](#setbarstyle)
+ - [setBarTranslucent](#setbartranslucent)
+ - [setBarColor](#setbarcolor)
+ - [addEventListener](#addeventlistener)
 
 ### fullLayout
 `fullLayout(full: boolean): void`
