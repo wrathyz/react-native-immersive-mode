@@ -71,6 +71,10 @@ use all area of screen
 | full | boolean | `true` use all area of screen, `false` not include status and navigation bar |
 
 ```javascript
+import ImmersiveMode from 'react-native-immersive-mode';
+
+// ...
+
 // should set full layout in componentDidMount
 componentDidMount() {
 	ImmersiveMode.fullLayout(true);
@@ -92,6 +96,8 @@ change status and navigation bar mode
 | mode | string | [Bar Mode](#bar-mode) |
 
 ```javascript
+import ImmersiveMode from 'react-native-immersive-mode';
+
 // Deprecated
 ImmersiveMode.setImmersive(ImmersiveMode.Normal);
 
@@ -110,6 +116,8 @@ chnage status and navigation style
 | mode | string | [Bar Style](#bar-style) |
 
 ```javascript
+import ImmersiveMode from 'react-native-immersive-mode';
+
 ImmersiveMode.setBarStyle('Dark');
 ```
 
@@ -124,6 +132,8 @@ change status and navigation bar is transparent 50%.
 | translucent | booelan |  |
 
 ```javascript
+import ImmersiveMode from 'react-native-immersive-mode';
+
 ImmersiveMode.setBarTranslucent(true);
 ```
 
@@ -138,6 +148,8 @@ change status and navigation bar is transparent 50%.
 > default color is color before changed by `setBarColor`
 
 ```javascript
+import ImmersiveMode from 'react-native-immersive-mode';
+
 ImmersiveMode.setBarColor('#ff0000');
 ```
 
@@ -150,6 +162,10 @@ trigger event when bar visibility change (mode sticky not trigged)
 | callback | function | (statusBar: boolean, navigationBottomBar: boolean) | description |
 
 ```javascript
+import ImmersiveMode from 'react-native-immersive-mode';
+
+// ...
+
 componentDidMount() {
 	this.listen = ImmersiveMode.addEventListener((e) => {
 		console.log(e)
