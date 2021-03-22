@@ -66,7 +66,7 @@ const ImmersiveMode = {
     },
 
     addEventListener(callback) {
-        if checkModule() {
+        if (checkModule()) {
             if (typeof callback !== 'function') return;
 
             RNImmersiveMode.setOnSystemUiVisibilityChangeListener();
