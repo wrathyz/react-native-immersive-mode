@@ -2,18 +2,21 @@
 # react-native-immersive-mode
 [![npm version](https://badge.fury.io/js/react-native-immersive-mode.svg)](https://badge.fury.io/js/react-native-immersive-mode)
 
-## Getting started
-
-`$ npm install react-native-immersive-mode --save`
+## Installation
 
 ### Mostly automatic installation
 
-Note. react-native `>0.60` no need to link
+```python
+npm install react-native-immersive-mode --save
+```
 
-`$ react-native link react-native-immersive-mode`
+### Auto linking library (react-native < 0.60)
 
-### Manual installation
+```python
+react-native link react-native-immersive-mode
+```
 
+### Manual linking library
 
 #### Android
 
@@ -60,6 +63,7 @@ Note. react-native `>0.60` no need to link
  - [setBarStyle](#setbarstyle)
  - [setBarTranslucent](#setbartranslucent)
  - [setBarColor](#setbarcolor)
+ - [setBarDefaultColor](#setBarDefaultColor)
  - [addEventListener](#addeventlistener)
 
 ### fullLayout
@@ -72,8 +76,6 @@ use all area of screen
 
 ```javascript
 import ImmersiveMode from 'react-native-immersive-mode';
-
-// ...
 
 // should set full layout in componentDidMount
 componentDidMount() {
@@ -98,10 +100,6 @@ change status and navigation bar mode
 ```javascript
 import ImmersiveMode from 'react-native-immersive-mode';
 
-// Deprecated
-ImmersiveMode.setImmersive(ImmersiveMode.Normal);
-
-// Use this instead
 ImmersiveMode.setBarMode('Normal');
 ```
 
@@ -143,14 +141,25 @@ change status and navigation bar is transparent 50%.
 
 | name | type | description |
 | ---- | ---- | ------------|
-| color | string | `#rgb`, `#rrggbb`, `#rrggbbaa`. if color is `null` will set default color |
+| color | string | `#rgb`, `#rrggbb`, `#rrggbbaa` |
+
+```javascript
+import ImmersiveMode from 'react-native-immersive-mode';
+
+ImmersiveMode.setBarColor('#ff0000');
+```
+
+**Note**. still can passing `null` to set default color
+
+### setBarDefaultColor
+`setBarDefaultColor(): void`
 
 > default color is color before changed by `setBarColor`
 
 ```javascript
 import ImmersiveMode from 'react-native-immersive-mode';
 
-ImmersiveMode.setBarColor('#ff0000');
+ImmersiveMode.setBarDefaultColor();
 ```
 
 ### addEventListener
