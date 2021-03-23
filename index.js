@@ -52,6 +52,12 @@ const ImmersiveMode = {
         }
     },
 
+    setBarDefaultColor() {
+        if (checkModule()) {
+            RNImmersiveMode.setBarColor(null);
+        }
+    },
+
     addEventListener(callback) {
         if (checkModule()) {
             if (typeof callback !== 'function') return;

@@ -32,6 +32,12 @@ interface ImmersiveModeStatic {
     setBarColor(color: string): void;
 
     /**
+     * Set default color of system bar.
+     * When set default color translucent will be disabled.
+     */
+     setBarDefaultColor(): void;
+
+    /**
      * Set style of system bar.
      * System Navigation will be Light, must be change bar color `setBarColor` to other color first.
      * 
