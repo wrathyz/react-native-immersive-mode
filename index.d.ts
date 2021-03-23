@@ -1,16 +1,5 @@
 import { EmitterSubscription } from 'react-native'
 
-/**
- * @deprecated
- */
-type ImmersiveModeType = {
-    Normal: number,
-    Full: number,
-    FullSticky: number,
-    Bottom: number,
-    BottomSticky: number,
-}
-
 type BarViisibilityType = {
     statusBar: boolean,
     navigationBottomBar: boolean
@@ -25,16 +14,8 @@ type ImmersiveBarModeType =
     'BottomSticky'
 
 
-interface ImmersiveModeStatic extends ImmersiveModeType {
+interface ImmersiveModeStatic {
     fullLayout(full: boolean): void;
-
-    /**
-     * Set system ui mode.
-     * @param mode 
-     * 
-     * @deprecated use `setBarMode` instaead.
-     */
-    setImmersive(mode: ImmersiveModeType): void;
 
     /**
      * Set system ui mode.

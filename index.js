@@ -12,23 +12,10 @@ const checkModule = () => {
 }
 
 const ImmersiveMode = {
-    /**
-     * @deprecated
-     */
-    ...RNImmersiveMode, // for constants
 
     fullLayout(full) {
         if (checkModule()) {
             RNImmersiveMode.fullLayout(full);
-        }
-    },
-
-    /**
-     * @deprecated
-     */
-    setImmersive(mode) {
-        if (checkModule()) {
-            RNImmersiveMode.setImmersive(mode);
         }
     },
 

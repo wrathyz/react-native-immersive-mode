@@ -77,43 +77,6 @@ public class RNImmersiveModeModule extends ReactContextBaseJavaModule {
         this.setUiOnUiThread();
     }
 
-    @Deprecated
-    @ReactMethod
-    public void setImmersive(int immersive) {
-
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
-            Log.w(ModuleName, "Sdk Version must be >= " + Build.VERSION_CODES.KITKAT);
-            return;
-        }
-
-        switch (immersive) {
-            case ImmersiveMode.Normal:
-                this.currentMode = View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
-                break;
-            case ImmersiveMode.Full:
-                this.currentMode = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // hide nav bar
-                        | View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar
-                        | View.SYSTEM_UI_FLAG_IMMERSIVE;
-                break;
-            case ImmersiveMode.FullSticky:
-                this.currentMode = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                        | View.SYSTEM_UI_FLAG_FULLSCREEN
-                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
-                break;
-            case ImmersiveMode.Bottom:
-                this.currentMode = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                        | View.SYSTEM_UI_FLAG_IMMERSIVE;
-                break;
-            case ImmersiveMode.BottomSticky:
-                this.currentMode = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
-                break;
-            default:
-        }
-
-        this.setUiOnUiThread();
-    }
-
     @ReactMethod
     public void setBarMode(String immersive) {
 
