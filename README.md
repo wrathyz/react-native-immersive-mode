@@ -168,7 +168,7 @@ trigger event when bar visibility change (mode sticky not trigged)
 
 | name | type | params | description |
 | ---- | ---- | ------ | ------------|
-| callback | function | (statusBar: boolean, navigationBottomBar: boolean) | true: show, false: hidden |
+| callback | function | (statusBar: boolean, navigationBottomBar: boolean) | `true`: show, `false`: hidden |
 
 ```javascript
 import ImmersiveMode from 'react-native-immersive-mode';
